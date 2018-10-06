@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">App MeLi</string>
-    <string name="search">Buscar</string>
+    <string name="hero_image_description">Logo Mercado Libre</string>
+    <string name="landing_footer">Aplicación para entrevista ML 2018</string>
+    <string name="search_bar_text">Buscar</string>
+
 </resources>

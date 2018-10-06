@@ -11,4 +11,7 @@
     <!-- Card values -->
     <dimen name="card_elevation">2dp</dimen>
     <dimen name="card_corner_radius">8dp</dimen>
+
+    <!-- Landing page values -->
+    <dimen name="hero_image_height">160dp</dimen>
 </resources>
