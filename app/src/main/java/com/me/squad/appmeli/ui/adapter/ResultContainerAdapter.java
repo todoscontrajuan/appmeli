@@ -47,7 +47,6 @@ public class ResultContainerAdapter extends RecyclerView.Adapter<ResultContainer
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, DetailPageActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("selected", resultList.get(resultItemViewHolder.getAdapterPosition()));
                 context.startActivity(intent);
             }
