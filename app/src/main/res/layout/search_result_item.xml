@@ -6,7 +6,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     app:cardElevation="@dimen/card_elevation"
     app:cardCornerRadius="@dimen/card_corner_radius"
-    app:contentPadding="@dimen/padding_large">
+    app:contentPadding="@dimen/padding_large"
+    android:id="@+id/search_result_item_container"
+    android:layout_margin="@dimen/margin_medium">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -22,27 +24,29 @@
                 android:scaleType="centerCrop"/>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:maxLines="2"
+                android:singleLine="true"
+                android:ellipsize="end"
                 android:id="@+id/search_result_item_title"
                 android:textSize="@dimen/text_subtitle"
                 android:textColor="@color/colorTitle"
                 app:layout_constraintStart_toEndOf="@id/search_result_item_image"
-                app:layout_constraintBottom_toTopOf="@id/search_result_item_free_shipping"
+                app:layout_constraintBottom_toTopOf="@id/search_result_item_price"
+                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginStart="@dimen/margin_large"
-                android:layout_marginBottom="@dimen/margin_medium"
-                tools:text="Mercado Libre"/>
+                tools:text="Producto 1"/>
 
             <TextView
-                android:layout_width="@dimen/search_result_item_size"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/search_result_item_price"
                 android:textSize="@dimen/text_large"
                 tools:text="$5000"
-                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_large"
                 android:fontFamily="@font/google_sans_medium"
-                app:layout_constraintTop_toBottomOf="@id/search_result_item_image" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/search_result_item_image"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -52,9 +56,10 @@
                 android:text="@string/free_shipping"
                 android:textColor="@color/colorBrand"
                 android:fontFamily="@font/google_sans_medium"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/search_result_item_price"
-                android:layout_marginStart="@dimen/margin_large"/>
+                app:layout_constraintBottom_toTopOf="@id/search_result_item_title"
+                app:layout_constraintStart_toEndOf="@id/search_result_item_image"
+                android:layout_marginStart="@dimen/margin_large"
+                android:visibility="invisible"/>
 
         </android.support.constraint.ConstraintLayout>
 
