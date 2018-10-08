@@ -47,7 +47,7 @@ public class SearchResultActivity extends AppCompatActivity {
         resultList.add(new SearchResultItem("Item de prueba con un nombre largo 4", "$400,00", R.drawable.ic_launcher_background, false));
         resultList.add(new SearchResultItem("Item de prueba 5", "$400,00", R.drawable.ic_launcher_background, false));
         resultList.add(new SearchResultItem("Item de prueba 6", "$400,00", R.drawable.ic_launcher_background, false));
-        ResultContainerAdapter adapter = new ResultContainerAdapter(resultList);
+        ResultContainerAdapter adapter = new ResultContainerAdapter(this, resultList);
         resultContainer.setAdapter(adapter);
     }
 

@@ -1,8 +1,11 @@
 package com.me.squad.appmeli.ui.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,15 +14,18 @@ import android.widget.TextView;
 
 import com.me.squad.appmeli.R;
 import com.me.squad.appmeli.model.SearchResultItem;
+import com.me.squad.appmeli.ui.DetailPageActivity;
 
 import java.util.List;
 
 public class ResultContainerAdapter extends RecyclerView.Adapter<ResultContainerAdapter.ResultItemViewHolder>{
 
     private List<SearchResultItem> resultList;
+    private Context context;
 
-    public ResultContainerAdapter(List<SearchResultItem> resultList) {
+    public ResultContainerAdapter(Context context, List<SearchResultItem> resultList) {
         this.resultList = resultList;
+        this.context = context;
     }
 
     @NonNull
@@ -30,13 +36,22 @@ public class ResultContainerAdapter extends RecyclerView.Adapter<ResultContainer
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ResultItemViewHolder resultItemViewHolder, int i) {
+    public void onBindViewHolder(@NonNull final ResultItemViewHolder resultItemViewHolder, int i) {
         resultItemViewHolder.itemTitle.setText(resultList.get(i).getItemTitle());
         resultItemViewHolder.itemPrice.setText(resultList.get(i).getItemPrice());
         resultItemViewHolder.itemImage.setImageResource(resultList.get(i).getImageItemId());
         if (resultList.get(i).isFreeShipping()) {
             resultItemViewHolder.itemFreeShipping.setVisibility(View.VISIBLE);
         }
+        resultItemViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, DetailPageActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("selected", resultList.get(resultItemViewHolder.getAdapterPosition()));
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -44,7 +59,7 @@ public class ResultContainerAdapter extends RecyclerView.Adapter<ResultContainer
         return resultList.size();
     }
 
-    static class ResultItemViewHolder extends RecyclerView.ViewHolder {
+    public static class ResultItemViewHolder extends RecyclerView.ViewHolder {
         CardView container;
         TextView itemTitle;
         TextView itemPrice;

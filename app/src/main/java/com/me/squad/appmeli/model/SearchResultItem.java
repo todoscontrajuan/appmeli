@@ -1,6 +1,8 @@
 package com.me.squad.appmeli.model;
 
-public class SearchResultItem {
+import java.io.Serializable;
+
+public class SearchResultItem implements Serializable{
     private String itemTitle;
     private String itemPrice;
     private int imageItemId;
