@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,7 @@ import android.widget.TextView;
 
 import com.me.squad.appmeli.R;
 import com.me.squad.appmeli.model.SearchResultItem;
-import com.me.squad.appmeli.ui.DetailPageActivity;
+import com.me.squad.appmeli.ui.DetailsPageActivity;
 
 import java.util.List;
 
@@ -46,7 +45,7 @@ public class ResultContainerAdapter extends RecyclerView.Adapter<ResultContainer
         resultItemViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, DetailPageActivity.class);
+                Intent intent = new Intent(context, DetailsPageActivity.class);
                 intent.putExtra("selected", resultList.get(resultItemViewHolder.getAdapterPosition()));
                 context.startActivity(intent);
             }

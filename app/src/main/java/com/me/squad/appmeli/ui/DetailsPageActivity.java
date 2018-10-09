@@ -17,7 +17,7 @@ import java.util.List;
 import ir.apend.slider.model.Slide;
 import ir.apend.slider.ui.Slider;
 
-public class DetailPageActivity extends AppCompatActivity {
+public class DetailsPageActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
