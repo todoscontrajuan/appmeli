@@ -2,6 +2,7 @@ package com.me.squad.appmeli.model;
 
 import java.io.Serializable;
 
+// TODO Delete me when API connection is finished
 public class SearchResultItem implements Serializable{
     private String itemTitle;
     private String itemPrice;
