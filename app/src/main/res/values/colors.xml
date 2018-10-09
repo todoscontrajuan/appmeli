@@ -3,5 +3,6 @@
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#FAFAFA</color>
     <color name="colorBrand">#F4DF00</color>
+    <color name="colorBrandDark">#FFD600</color>
     <color name="colorTitle">#000000</color>
 </resources>

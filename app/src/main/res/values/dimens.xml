@@ -9,7 +9,7 @@
     <dimen name="padding_large">16dp</dimen>
 
     <!-- Card values -->
-    <dimen name="card_elevation">4dp</dimen>
+    <dimen name="card_elevation">3dp</dimen>
     <dimen name="card_corner_radius">8dp</dimen>
 
     <!-- Text dimens -->
@@ -17,6 +17,12 @@
     <dimen name="text_subtitle">20sp</dimen>
     <dimen name="text_large">16sp</dimen>
     <dimen name="text_medium">12sp</dimen>
+
+    <!-- Details Page values -->
+    <dimen name="slider_height">240dp</dimen>
+    <dimen name="slider_corner">0dp</dimen>
+    <dimen name="slider_indicator_size">8dp</dimen>
+    <dimen name="star_size">20dp</dimen>
 
     <!-- Other dimens -->
     <dimen name="hero_image_height">160dp</dimen>

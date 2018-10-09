@@ -11,6 +11,12 @@ import android.widget.TextView;
 import com.me.squad.appmeli.R;
 import com.me.squad.appmeli.model.SearchResultItem;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import ir.apend.slider.model.Slide;
+import ir.apend.slider.ui.Slider;
+
 public class DetailPageActivity extends AppCompatActivity {
 
     @Override
@@ -19,8 +25,6 @@ public class DetailPageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail_page);
 
         // Setup Toolbar
-        Intent intent = getIntent();
-        SearchResultItem item = (SearchResultItem) intent.getSerializableExtra("selected");
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,7 +32,16 @@ public class DetailPageActivity extends AppCompatActivity {
                 finish();
             }
         });
-        ((TextView) toolbar.findViewById(R.id.toolbar_text)).setText(item.getItemTitle());
+        ((TextView) toolbar.findViewById(R.id.toolbar_text)).setText(getText(R.string.product_page_title));
+
+        // Setup Slider
+        Slider slider = findViewById(R.id.image_slider);
+        List<Slide> slideList = new ArrayList<>();
+        slideList.add(new Slide(0,"http://cssslider.com/sliders/demo-20/data1/images/picjumbo.com_img_4635.jpg" , getResources().getDimensionPixelSize(R.dimen.slider_corner)));
+        slideList.add(new Slide(1,"http://cssslider.com/sliders/demo-12/data1/images/picjumbo.com_hnck1995.jpg" , getResources().getDimensionPixelSize(R.dimen.slider_corner)));
+        slideList.add(new Slide(2,"http://cssslider.com/sliders/demo-19/data1/images/picjumbo.com_hnck1588.jpg" , getResources().getDimensionPixelSize(R.dimen.slider_corner)));
+        slideList.add(new Slide(3,"http://wowslider.com/sliders/demo-18/data1/images/shanghai.jpg" , getResources().getDimensionPixelSize(R.dimen.slider_corner)));
+        slider.addSlides(slideList);
     }
 
     @Override
