@@ -4,6 +4,7 @@
     <string name="landing_footer">Aplicación para entrevista ML 2018</string>
     <string name="search_bar_text">Buscar</string>
     <string name="free_shipping_indicator_text">Envío gratis</string>
+    <string name="pay_shipping_indicator_text">Paga envío</string>
     <string name="product_page_title">Producto</string>
     <string name="description_button_text">Descripción</string>
     <string name="seller_indicator_text">Vendedor</string>

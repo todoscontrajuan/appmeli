@@ -4,7 +4,9 @@ package com.me.squad.appmeli.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Attribute {
+import java.io.Serializable;
+
+public class Attribute implements Serializable {
 
     @SerializedName("value_id")
     @Expose
@@ -23,7 +25,7 @@ public class Attribute {
     private String attributeGroupName;
     @SerializedName("source")
     @Expose
-    private Integer source;
+    private long source;
     @SerializedName("id")
     @Expose
     private String id;
@@ -71,11 +73,11 @@ public class Attribute {
         this.attributeGroupName = attributeGroupName;
     }
 
-    public Integer getSource() {
+    public long getSource() {
         return source;
     }
 
-    public void setSource(Integer source) {
+    public void setSource(long source) {
         this.source = source;
     }
 

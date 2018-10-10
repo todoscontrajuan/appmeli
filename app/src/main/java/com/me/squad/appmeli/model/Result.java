@@ -1,11 +1,12 @@
 
 package com.me.squad.appmeli.model;
 
+import java.io.Serializable;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Result {
+public class Result implements Serializable {
 
     @SerializedName("id")
     @Expose
@@ -21,7 +22,7 @@ public class Result {
     private Seller seller;
     @SerializedName("price")
     @Expose
-    private Integer price;
+    private float price;
     @SerializedName("currency_id")
     @Expose
     private String currencyId;
@@ -118,11 +119,11 @@ public class Result {
         this.seller = seller;
     }
 
-    public Integer getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 

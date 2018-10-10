@@ -4,7 +4,9 @@ package com.me.squad.appmeli.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Installments {
+import java.io.Serializable;
+
+public class Installments implements Serializable {
 
     @SerializedName("quantity")
     @Expose

@@ -12,19 +12,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.me.squad.appmeli.R;
-import com.me.squad.appmeli.model.SearchResultItem;
+import com.me.squad.appmeli.model.Result;
 import com.me.squad.appmeli.ui.DetailsPageActivity;
 
 import java.util.List;
 
 public class ResultContainerAdapter extends RecyclerView.Adapter<ResultContainerAdapter.ResultItemViewHolder>{
 
-    private List<SearchResultItem> resultList;
+    private List<Result> resultList;
     private Context context;
 
-    public ResultContainerAdapter(Context context, List<SearchResultItem> resultList) {
+    public ResultContainerAdapter(Context context, List<Result> resultList) {
         this.resultList = resultList;
         this.context = context;
+        setHasStableIds(true);
     }
 
     @NonNull
@@ -36,10 +37,10 @@ public class ResultContainerAdapter extends RecyclerView.Adapter<ResultContainer
 
     @Override
     public void onBindViewHolder(@NonNull final ResultItemViewHolder resultItemViewHolder, int i) {
-        resultItemViewHolder.itemTitle.setText(resultList.get(i).getItemTitle());
-        resultItemViewHolder.itemPrice.setText(resultList.get(i).getItemPrice());
-        resultItemViewHolder.itemImage.setImageResource(resultList.get(i).getImageItemId());
-        if (resultList.get(i).isFreeShipping()) {
+        resultItemViewHolder.itemTitle.setText(resultList.get(i).getTitle());
+        resultItemViewHolder.itemPrice.setText("$" + Float.toString(resultList.get(i).getPrice()));
+        resultItemViewHolder.itemImage.setImageResource(R.drawable.ic_launcher_background);
+        if (resultList.get(i).getShipping().getFreeShipping()) {
             resultItemViewHolder.itemFreeShipping.setVisibility(View.VISIBLE);
         }
         resultItemViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -74,4 +75,13 @@ public class ResultContainerAdapter extends RecyclerView.Adapter<ResultContainer
         }
     }
 
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
 }
