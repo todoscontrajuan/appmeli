@@ -18,9 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.SearchResultActivity" />
-        <activity android:name=".ui.DetailsPageActivity" />
-        <activity android:name=".ui.ProductDescriptionActivity"></activity>
+        <activity android:name=".ui.SearchResultActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
+        <activity android:name=".ui.DetailsPageActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
+        <activity android:name=".ui.ProductDescriptionActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
     </application>
 
 </manifest>
