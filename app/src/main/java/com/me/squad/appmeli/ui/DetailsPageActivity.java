@@ -88,7 +88,7 @@ public class DetailsPageActivity extends AppCompatActivity {
         TextView productTitle = findViewById(R.id.product_title);
         productTitle.setText(response.body().getTitle());
         TextView productPrice = findViewById(R.id.product_price);
-        productPrice.setText("$" + Float.toString(response.body().getPrice()));
+        productPrice.setText(String.format("%s$%s", response.body().getCurrencyId(), Float.toString(response.body().getPrice())));
         TextView productRating = findViewById(R.id.product_rating);
         productRating.setText(Float.toString(productAverageRating));
         TextView productShipping = findViewById(R.id.product_shipping);

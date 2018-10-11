@@ -39,7 +39,7 @@ public class ResultContainerAdapter extends RecyclerView.Adapter<ResultContainer
     @Override
     public void onBindViewHolder(@NonNull final ResultItemViewHolder resultItemViewHolder, int i) {
         resultItemViewHolder.itemTitle.setText(resultList.get(i).getTitle());
-        resultItemViewHolder.itemPrice.setText("$" + Float.toString(resultList.get(i).getPrice()));
+        resultItemViewHolder.itemPrice.setText(String.format("%s$%s", resultList.get(i).getCurrencyId(), Float.toString(resultList.get(i).getPrice())));
         Picasso.get().load(resultList.get(i).getThumbnail()).into(resultItemViewHolder.itemImage);
         if (resultList.get(i).getShipping().getFreeShipping()) {
             resultItemViewHolder.itemFreeShipping.setVisibility(View.VISIBLE);
