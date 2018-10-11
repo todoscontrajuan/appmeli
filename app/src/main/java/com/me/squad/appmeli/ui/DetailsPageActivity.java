@@ -64,7 +64,7 @@ public class DetailsPageActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Product> call, Throwable t) {
-                Log.d("ERROR", "Something went wrong...Error message: " + t.getMessage());
+                Log.d("APP_MELI_ERROR", "Something went wrong...Error message: " + t.getMessage());
             }
         });
     }

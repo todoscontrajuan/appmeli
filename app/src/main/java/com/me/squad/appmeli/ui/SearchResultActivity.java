@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -57,7 +58,7 @@ public class SearchResultActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<SearchResult> call, Throwable t) {
-                Toast.makeText(SearchResultActivity.this, "Something went wrong...Error message: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                Log.d("APP_MELI_ERROR", "Something went wrong...Error message: " + t.getMessage());
             }
         });
     }
