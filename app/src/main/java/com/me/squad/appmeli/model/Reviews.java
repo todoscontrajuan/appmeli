@@ -5,9 +5,7 @@ package com.me.squad.appmeli.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
-
-public class Reviews implements Serializable {
+public class Reviews {
     @SerializedName("rating_average")
     @Expose
     private float ratingAverage;

@@ -4,7 +4,7 @@ package com.me.squad.appmeli.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Country {
+public class Neighborhood {
 
     @SerializedName("id")
     @Expose

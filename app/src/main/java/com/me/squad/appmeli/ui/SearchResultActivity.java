@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,7 +45,6 @@ public class SearchResultActivity extends AppCompatActivity {
         // Call Service
         ItemSearchService service = RetrofitInstance.getRetrofitInstance().create(ItemSearchService.class);
         Call<SearchResult> call = service.getSearchResult(searchValue);
-        Log.wtf("URL Called", call.request().url() + "");
         call.enqueue(new Callback<SearchResult>() {
             @Override
             public void onResponse(Call<SearchResult> call, Response<SearchResult> response) {

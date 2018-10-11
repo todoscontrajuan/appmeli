@@ -7,5 +7,7 @@
     <string name="pay_shipping_indicator_text">Paga envío</string>
     <string name="product_page_title">Producto</string>
     <string name="description_button_text">Descripción</string>
-    <string name="seller_indicator_text">Vendedor</string>
+    <string name="state_indicator_text">Estado</string>
+    <string name="state_new_indicator">Nuevo</string>
+    <string name="state_used_indicator">Usado</string>
 </resources>

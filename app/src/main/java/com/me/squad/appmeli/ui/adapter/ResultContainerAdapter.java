@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.me.squad.appmeli.R;
 import com.me.squad.appmeli.model.Result;
 import com.me.squad.appmeli.ui.DetailsPageActivity;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class ResultContainerAdapter extends RecyclerView.Adapter<ResultContainer
     public void onBindViewHolder(@NonNull final ResultItemViewHolder resultItemViewHolder, int i) {
         resultItemViewHolder.itemTitle.setText(resultList.get(i).getTitle());
         resultItemViewHolder.itemPrice.setText("$" + Float.toString(resultList.get(i).getPrice()));
-        resultItemViewHolder.itemImage.setImageResource(R.drawable.ic_launcher_background);
+        Picasso.get().load(resultList.get(i).getThumbnail()).into(resultItemViewHolder.itemImage);
         if (resultList.get(i).getShipping().getFreeShipping()) {
             resultItemViewHolder.itemFreeShipping.setVisibility(View.VISIBLE);
         }
@@ -47,7 +48,8 @@ public class ResultContainerAdapter extends RecyclerView.Adapter<ResultContainer
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, DetailsPageActivity.class);
-                intent.putExtra("selected", resultList.get(resultItemViewHolder.getAdapterPosition()));
+                intent.putExtra("selected", resultList.get(resultItemViewHolder.getAdapterPosition()).getId());
+                intent.putExtra("averageRating", resultList.get(resultItemViewHolder.getAdapterPosition()).getReviews().getRatingAverage());
                 context.startActivity(intent);
             }
         });
