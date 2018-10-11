@@ -107,9 +107,17 @@ public class DetailsPageActivity extends AppCompatActivity {
                 productState.setText(getString(R.string.state_used_indicator));
                 break;
             default:
-                RelativeLayout productStateButton = findViewById(R.id.product_state_indicator);
+                RelativeLayout productStateButton =  findViewById(R.id.product_state_indicator);;
                 productStateButton.setVisibility(View.GONE);
                 break;
         }
+        RelativeLayout productDescriptionButton =  findViewById(R.id.product_description_button);;
+        productDescriptionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ProductDescriptionActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

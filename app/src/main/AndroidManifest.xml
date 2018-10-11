@@ -3,6 +3,7 @@
     package="com.me.squad.appmeli">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.SearchResultActivity" />
-        <activity android:name=".ui.DetailsPageActivity"></activity>
+        <activity android:name=".ui.DetailsPageActivity" />
+        <activity android:name=".ui.ProductDescriptionActivity"></activity>
     </application>
 
 </manifest>

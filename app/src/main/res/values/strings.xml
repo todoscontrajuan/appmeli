@@ -10,4 +10,5 @@
     <string name="state_indicator_text">Estado</string>
     <string name="state_new_indicator">Nuevo</string>
     <string name="state_used_indicator">Usado</string>
+    <string name="product_description_title">Descripción</string>
 </resources>
