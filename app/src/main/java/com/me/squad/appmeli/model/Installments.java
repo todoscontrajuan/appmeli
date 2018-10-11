@@ -14,7 +14,7 @@ public class Installments {
     private Double amount;
     @SerializedName("rate")
     @Expose
-    private Integer rate;
+    private float rate;
     @SerializedName("currency_id")
     @Expose
     private String currencyId;
@@ -35,11 +35,11 @@ public class Installments {
         this.amount = amount;
     }
 
-    public Integer getRate() {
+    public float getRate() {
         return rate;
     }
 
-    public void setRate(Integer rate) {
+    public void setRate(float rate) {
         this.rate = rate;
     }
 

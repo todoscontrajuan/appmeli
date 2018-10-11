@@ -9,10 +9,10 @@ public class Variation {
 
     @SerializedName("id")
     @Expose
-    private Integer id;
+    private long id;
     @SerializedName("price")
     @Expose
-    private Integer price;
+    private float price;
     @SerializedName("attribute_combinations")
     @Expose
     private List<AttributeCombination> attributeCombinations = null;
@@ -35,19 +35,19 @@ public class Variation {
     @Expose
     private String catalogProductId;
 
-    public Integer getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public Integer getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 

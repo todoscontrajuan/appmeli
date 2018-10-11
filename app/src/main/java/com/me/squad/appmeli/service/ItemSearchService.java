@@ -10,7 +10,7 @@ import retrofit2.http.Query;
 
 public interface ItemSearchService {
     // Get search results based on a query
-    @GET("sites/MLU/search")
+    @GET("sites/MLA/search")
     Call<SearchResult> getSearchResult(@Query("q") String query);
 
     // Get extra info item

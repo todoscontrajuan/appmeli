@@ -30,10 +30,10 @@ public class Product {
     private Object officialStoreId;
     @SerializedName("price")
     @Expose
-    private Integer price;
+    private float price;
     @SerializedName("base_price")
     @Expose
-    private Integer basePrice;
+    private float basePrice;
     @SerializedName("original_price")
     @Expose
     private Object originalPrice;
@@ -220,19 +220,19 @@ public class Product {
         this.officialStoreId = officialStoreId;
     }
 
-    public Integer getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 
-    public Integer getBasePrice() {
+    public float getBasePrice() {
         return basePrice;
     }
 
-    public void setBasePrice(Integer basePrice) {
+    public void setBasePrice(float basePrice) {
         this.basePrice = basePrice;
     }
 

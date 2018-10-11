@@ -6,6 +6,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -63,7 +64,7 @@ public class DetailsPageActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Product> call, Throwable t) {
-                Toast.makeText(DetailsPageActivity.this, "Something went wrong...Error message: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                Log.d("ERROR", "Something went wrong...Error message: " + t.getMessage());
             }
         });
     }
@@ -78,7 +79,7 @@ public class DetailsPageActivity extends AppCompatActivity {
         Slider slider = findViewById(R.id.image_slider);
         List<Slide> slideList = new ArrayList<>();
         for (int i = 0; i < pictureList.size(); i++) {
-            slideList.add(new Slide(i, pictureList.get(i).getUrl(), getResources().getDimensionPixelSize(R.dimen.slider_corner)));
+            slideList.add(new Slide(i, pictureList.get(i).getUrl(), getResources().getDimensionPixelSize(R.dimen.slider_image_corner)));
         }
         slider.addSlides(slideList);
     }

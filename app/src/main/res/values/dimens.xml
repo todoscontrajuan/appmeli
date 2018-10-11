@@ -20,7 +20,6 @@
 
     <!-- Details Page values -->
     <dimen name="slider_height">240dp</dimen>
-    <dimen name="slider_corner">0dp</dimen>
     <dimen name="slider_indicator_size">8dp</dimen>
     <dimen name="star_size">20dp</dimen>
 
