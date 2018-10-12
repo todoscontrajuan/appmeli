@@ -27,4 +27,5 @@
     <!-- Other dimens -->
     <dimen name="hero_image_height">160dp</dimen>
     <dimen name="search_result_item_size">72dp</dimen>
+    <dimen name="progressbar_size">50dp</dimen>
 </resources>

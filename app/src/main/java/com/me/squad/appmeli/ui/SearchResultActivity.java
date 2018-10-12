@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +27,8 @@ import retrofit2.Response;
 
 public class SearchResultActivity extends AppCompatActivity {
 
+    RecyclerView resultContainer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,22 +46,28 @@ public class SearchResultActivity extends AppCompatActivity {
         String searchValue = intent.getStringExtra(MainActivity.SEARCH_VALUE);
         ((TextView) toolbar.findViewById(R.id.toolbar_text)).setText(searchValue);
 
-        // Call Service
+        // Call Service and setup screen
+        resultContainer = findViewById(R.id.result_container);
+        final ProgressBar progressBar = findViewById(R.id.progressbar);
         ItemSearchService service = RetrofitInstance.getRetrofitInstance().create(ItemSearchService.class);
         Call<SearchResult> call = service.getSearchResult(searchValue);
         call.enqueue(new Callback<SearchResult>() {
             @Override
             public void onResponse(Call<SearchResult> call, Response<SearchResult> response) {
-                if (response.body() != null) {
+                if (response.body().getResults().size() != 0) {
                     setupResultList(response.body().getResults());
                 } else {
-                    Toast.makeText(SearchResultActivity.this, "No results", Toast.LENGTH_LONG).show();
+                    resultContainer.setVisibility(View.GONE);
+                    TextView noResultsMessage = findViewById(R.id.no_results_message);
+                    noResultsMessage.setVisibility(View.VISIBLE);
                 }
+                progressBar.setVisibility(View.GONE);
             }
 
             @Override
             public void onFailure(Call<SearchResult> call, Throwable t) {
                 Log.d("APP_MELI_ERROR", "Something went wrong...Error message: " + t.getMessage());
+                progressBar.setVisibility(View.GONE);
             }
         });
     }
@@ -70,7 +79,6 @@ public class SearchResultActivity extends AppCompatActivity {
     }
 
     private void setupResultList(List<Result> resultList) {
-        RecyclerView resultContainer = findViewById(R.id.result_container);
         LinearLayoutManager manager = new LinearLayoutManager(this);
         resultContainer.setLayoutManager(manager);
         ResultContainerAdapter adapter = new ResultContainerAdapter(this, resultList);

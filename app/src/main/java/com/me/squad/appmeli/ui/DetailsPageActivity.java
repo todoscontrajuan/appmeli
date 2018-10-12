@@ -48,7 +48,7 @@ public class DetailsPageActivity extends AppCompatActivity {
 
         // Get selected product data
         Intent intent = getIntent();
-        String productId = intent.getStringExtra("selected");
+        String productId = intent.getStringExtra("productId");
         productAverageRating = intent.getFloatExtra("averageRating", 0f);
 
         // Call service for extra info
@@ -85,7 +85,7 @@ public class DetailsPageActivity extends AppCompatActivity {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
-    private void setupDetails(Response<Product> response) {
+    private void setupDetails(final Response<Product> response) {
         TextView productTitle = findViewById(R.id.product_title);
         productTitle.setText(response.body().getTitle());
         TextView productPrice = findViewById(R.id.product_price);
@@ -117,6 +117,7 @@ public class DetailsPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), ProductDescriptionActivity.class);
+                intent.putExtra("productId", response.body().getId());
                 startActivity(intent);
             }
         });

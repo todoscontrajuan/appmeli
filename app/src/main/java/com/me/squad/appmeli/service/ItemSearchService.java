@@ -1,6 +1,7 @@
 package com.me.squad.appmeli.service;
 
 import com.me.squad.appmeli.model.Product;
+import com.me.squad.appmeli.model.ProductDescription;
 import com.me.squad.appmeli.model.SearchResult;
 
 import retrofit2.Call;
@@ -16,4 +17,8 @@ public interface ItemSearchService {
     // Get extra info item
     @GET("items/{id}")
     Call<Product> getProductDetails(@Path("id") String id);
+
+    // Get product description
+    @GET("items/{id}/description")
+    Call<ProductDescription> getProductDescription(@Path("id") String id);
 }

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,9 +19,6 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
     public final static String SEARCH_VALUE = "searchValue";
 
     @Override
@@ -63,22 +59,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Setup search bar suggestions
-        ArrayList<String> suggestionElementsList = new ArrayList<>();
-        // TODO Set this strings in xml
-        suggestionElementsList.add("Autos y Motos");
-        suggestionElementsList.add("Computación");
-        suggestionElementsList.add("Inmuebles");
-        suggestionElementsList.add("Electrodomesticos");
-        suggestionElementsList.add("Juegos y Juguetes");
-        suggestionElementsList.add("Celulares");
-        suggestionElementsList.add("Ropa");
-        suggestionElementsList.add("Consolas y Videojuegos");
+        String[] suggestionElementsList = new String[] {getString(R.string.suggestion_1), getString(R.string.suggestion_2),
+                getString(R.string.suggestion_3), getString(R.string.suggestion_4), getString(R.string.suggestion_5),
+                getString(R.string.suggestion_6), getString(R.string.suggestion_7), getString(R.string.suggestion_8),
+                getString(R.string.suggestion_9), getString(R.string.suggestion_10)};
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.suggestion_list_item, suggestionElementsList);
         suggestionList.setAdapter(adapter);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
                 performSearch(s);
+                searchView.setQuery("", false);
+                searchView.clearFocus();
+                searchView.setIconified(false);
                 return true;
             }
 

@@ -48,7 +48,7 @@ public class ResultContainerAdapter extends RecyclerView.Adapter<ResultContainer
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, DetailsPageActivity.class);
-                intent.putExtra("selected", resultList.get(resultItemViewHolder.getAdapterPosition()).getId());
+                intent.putExtra("productId", resultList.get(resultItemViewHolder.getAdapterPosition()).getId());
                 intent.putExtra("averageRating", resultList.get(resultItemViewHolder.getAdapterPosition()).getReviews().getRatingAverage());
                 context.startActivity(intent);
             }

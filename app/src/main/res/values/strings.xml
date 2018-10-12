@@ -11,4 +11,17 @@
     <string name="state_new_indicator">Nuevo</string>
     <string name="state_used_indicator">Usado</string>
     <string name="product_description_title">Descripción</string>
+    <string name="no_results_message">No encontramos publicaciones con los datos ingresados</string>
+
+    <!-- Search suggestions -->
+    <string name="suggestion_1">Autos y Motos</string>
+    <string name="suggestion_2">Computación</string>
+    <string name="suggestion_3">Inmuebles</string>
+    <string name="suggestion_4">Electrodomesticos</string>
+    <string name="suggestion_5">Juegos y Juguetes</string>
+    <string name="suggestion_6">Celulares</string>
+    <string name="suggestion_7">Ropa</string>
+    <string name="suggestion_8">Consolas y Videojuegos</string>
+    <string name="suggestion_9">Libros</string>
+    <string name="suggestion_10">Muebles</string>
 </resources>
