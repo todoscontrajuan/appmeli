@@ -22,7 +22,6 @@
             android:id="@+id/image_slider"
             android:layout_width="match_parent"
             android:layout_height="@dimen/slider_height"
-            android:layout_marginTop="@dimen/margin_large"
             app:animateIndicators="true"
             app:defaultIndicators="circle"
             app:indicatorSize="@dimen/slider_indicator_size"

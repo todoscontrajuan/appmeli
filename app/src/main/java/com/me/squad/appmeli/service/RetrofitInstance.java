@@ -4,8 +4,10 @@ package com.me.squad.appmeli.service;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * Retrofit instance to perform calls to the API
+ */
 public class RetrofitInstance {
-
     private static Retrofit retrofit;
     private static final String BASE_URL = "https://api.mercadolibre.com/";
 

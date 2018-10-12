@@ -12,6 +12,7 @@
     <string name="state_used_indicator">Usado</string>
     <string name="product_description_title">Descripción</string>
     <string name="no_results_message">No encontramos publicaciones con los datos ingresados</string>
+    <string name="no_rating_indicator">N.D.</string>
 
     <!-- Search suggestions -->
     <string name="suggestion_1">Autos y Motos</string>

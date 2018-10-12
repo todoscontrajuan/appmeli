@@ -15,8 +15,6 @@ import android.widget.TextView;
 
 import com.me.squad.appmeli.R;
 
-import java.util.ArrayList;
-
 public class MainActivity extends AppCompatActivity {
 
     public final static String SEARCH_VALUE = "searchValue";

@@ -22,6 +22,8 @@ import retrofit2.Response;
 
 public class ProductDescriptionActivity extends AppCompatActivity {
 
+    private static final String TAG = "APP_MELI_ERROR";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +55,7 @@ public class ProductDescriptionActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ProductDescription> call, Throwable t) {
-                Log.d("APP_MELI_ERROR", "Something went wrong...Error message: " + t.getMessage());
+                Log.d(TAG, "Something went wrong...Error message: " + t.getMessage());
             }
         });
     }

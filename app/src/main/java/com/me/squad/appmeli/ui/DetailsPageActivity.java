@@ -30,6 +30,7 @@ import retrofit2.Response;
 public class DetailsPageActivity extends AppCompatActivity {
 
     private float productAverageRating;
+    private static final String TAG = "APP_MELI_ERROR";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +65,7 @@ public class DetailsPageActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Product> call, Throwable t) {
-                Log.d("APP_MELI_ERROR", "Something went wrong...Error message: " + t.getMessage());
+                Log.d(TAG, "Something went wrong...Error message: " + t.getMessage());
             }
         });
     }
@@ -91,7 +92,11 @@ public class DetailsPageActivity extends AppCompatActivity {
         TextView productPrice = findViewById(R.id.product_price);
         productPrice.setText(String.format("%s$%s", response.body().getCurrencyId(), Float.toString(response.body().getPrice())));
         TextView productRating = findViewById(R.id.product_rating);
-        productRating.setText(Float.toString(productAverageRating));
+        if (productAverageRating == 0f) {
+            productRating.setText(getString(R.string.no_rating_indicator));
+        } else {
+            productRating.setText(Float.toString(productAverageRating));
+        }
         TextView productShipping = findViewById(R.id.product_shipping);
         if (response.body().getShipping().getFreeShipping()) {
             productShipping.setText(getString(R.string.free_shipping_indicator_text));

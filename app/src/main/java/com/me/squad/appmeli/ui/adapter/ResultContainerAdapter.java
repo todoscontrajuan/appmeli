@@ -23,6 +23,10 @@ public class ResultContainerAdapter extends RecyclerView.Adapter<ResultContainer
     private List<Result> resultList;
     private Context context;
 
+    /**
+     * @param context    App context
+     * @param resultList List of Results that will be shown in the RecyclerView
+     */
     public ResultContainerAdapter(Context context, List<Result> resultList) {
         this.resultList = resultList;
         this.context = context;

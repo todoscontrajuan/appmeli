@@ -103,9 +103,6 @@ public class Product {
     @SerializedName("seller_contact")
     @Expose
     private Object sellerContact;
-    @SerializedName("location")
-    @Expose
-    private Location location;
     @SerializedName("geolocation")
     @Expose
     private Geolocation geolocation;
@@ -418,14 +415,6 @@ public class Product {
 
     public void setSellerContact(Object sellerContact) {
         this.sellerContact = sellerContact;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
     }
 
     public Geolocation getGeolocation() {

@@ -1,6 +1,8 @@
 package com.me.squad.appmeli.ui;
 
 import android.content.Intent;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -28,14 +30,17 @@ import retrofit2.Response;
 public class SearchResultActivity extends AppCompatActivity {
 
     RecyclerView resultContainer;
+    private static final int SCROLL_DIRECTION_UP = -1;
+    private static final String TAG = "APP_MELI_ERROR";
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
 
         // Setup Toolbar
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        final Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,8 +71,18 @@ public class SearchResultActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<SearchResult> call, Throwable t) {
-                Log.d("APP_MELI_ERROR", "Something went wrong...Error message: " + t.getMessage());
+                Log.d(TAG, "Something went wrong...Error message: " + t.getMessage());
                 progressBar.setVisibility(View.GONE);
+            }
+        });
+        resultContainer.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(View view, int i, int i1, int i2, int i3) {
+                if (resultContainer.canScrollVertically(SCROLL_DIRECTION_UP)) {
+                    toolbar.setElevation(getResources().getDimension(R.dimen.card_elevation));
+                } else {
+                    toolbar.setElevation(getResources().getDimension(R.dimen.no_elevation));
+                }
             }
         });
     }

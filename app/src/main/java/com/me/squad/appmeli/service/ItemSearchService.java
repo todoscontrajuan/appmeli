@@ -9,6 +9,9 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
+/**
+ * Service for Retrofit calls
+ */
 public interface ItemSearchService {
     // Get search results based on a query
     @GET("sites/MLA/search")
